@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LexicalEditor from './LexicalEditor';
+import LexicalEditor from './components/LexicalEditor';
 import './App.css';
 
 function App() {

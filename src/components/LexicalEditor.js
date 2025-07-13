@@ -13,7 +13,6 @@ function Placeholder() {
 
 const theme = {
   paragraph: 'editor-paragraph',
-  underline: 'editor-underline',
 };
 
 const initialConfig = {
