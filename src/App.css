@@ -1,3 +1,12 @@
+/* Lexical editor scroll area */
+.editor-scroll-area {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+/* Lexical underline style */
+.editor-underline {
+  text-decoration: underline;
+}
 .App {
   text-align: center;
 }

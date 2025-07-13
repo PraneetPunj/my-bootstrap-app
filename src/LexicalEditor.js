@@ -2,7 +2,6 @@ import React from 'react';
 import LexicalToolbar from './LexicalToolbar';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { UnderlinePlugin } from '@lexical/react/LexicalUnderlinePlugin';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
@@ -13,8 +12,8 @@ function Placeholder() {
 }
 
 const theme = {
-  // Add custom theme styles here if desired
   paragraph: 'editor-paragraph',
+  underline: 'editor-underline',
 };
 
 const initialConfig = {
@@ -30,11 +29,12 @@ export default function LexicalEditor() {
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container card p-3">
         <LexicalToolbar />
-        <RichTextPlugin
-          contentEditable={<ContentEditable className="editor-input form-control" />}
-          placeholder={<Placeholder />}
-        />
-        <UnderlinePlugin />
+        <div className="editor-scroll-area">
+          <RichTextPlugin
+            contentEditable={<ContentEditable className="editor-input form-control" />}
+            placeholder={<Placeholder />}
+          />
+        </div>
         <HistoryPlugin />
         <AutoFocusPlugin />
         <OnChangePlugin onChange={editorState => {}} />
