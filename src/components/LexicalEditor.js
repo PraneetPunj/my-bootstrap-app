@@ -6,6 +6,8 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { ListNode, ListItemNode } from '@lexical/list';
 
 function Placeholder() {
   return <div className="editor-placeholder">Start typing...</div>;
@@ -18,6 +20,7 @@ const theme = {
 const initialConfig = {
   namespace: 'MyEditor',
   theme,
+  nodes: [ListNode, ListItemNode],
   onError(error) {
     console.error(error);
   },
@@ -34,6 +37,7 @@ export default function LexicalEditor() {
             placeholder={<Placeholder />}
           />
         </div>
+        <ListPlugin />
         <HistoryPlugin />
         <AutoFocusPlugin />
         <OnChangePlugin onChange={editorState => {}} />
