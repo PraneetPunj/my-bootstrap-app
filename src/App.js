@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LexicalEditor from './components/LexicalEditor';
+import EditorContentDisplay from './components/EditorContentDisplay';
 import './App.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
@@ -58,6 +59,8 @@ function App() {
                       <React.Suspense fallback={<div>Loading editor...</div>}>
                         <LexicalEditor />
                       </React.Suspense>
+                      {/* Display Redux editor content below the editor */}
+                      <EditorContentDisplay />
                     </div>
                     <div className="alert alert-success" role="alert">
                       <i className="bi bi-check-circle me-2"></i>Editor is ready for your input!
