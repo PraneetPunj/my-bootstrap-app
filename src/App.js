@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LexicalEditor from './components/LexicalEditor';
 import './App.css';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function App() {
   const [page, setPage] = useState('home');
@@ -8,30 +9,24 @@ function App() {
   return (
     <div className="App">
       {/* Modern Navbar with icons */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-        <div className="container-fluid">
-          <button className="navbar-brand btn btn-link text-white fw-bold" style={{textDecoration: 'none', fontSize: '1.5rem'}} onClick={() => setPage('home')}>
+      <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm rounded mb-3">
+        <Container fluid>
+          <Navbar.Brand as="button" onClick={() => setPage('home')} className="fw-bold">
             <i className="bi bi-bootstrap-fill me-2"></i>My App
-          </button>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <button className={`nav-link btn btn-link text-white${page === 'home' ? ' active fw-bold' : ''}`} style={{textDecoration: 'none'}} onClick={() => setPage('home')}>
-                  <i className="bi bi-house-door me-1"></i>Home
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className={`nav-link btn btn-link text-white${page === 'editor' ? ' active fw-bold' : ''}`} style={{textDecoration: 'none'}} onClick={() => setPage('editor')}>
-                  <i className="bi bi-pencil-square me-1"></i>Editor
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="main-navbar-nav" />
+          <Navbar.Collapse id="main-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link as="button" onClick={() => setPage('home')} active={page === 'home'} className="fw-bold">
+                <i className="bi bi-house-door me-1"></i>Home
+              </Nav.Link>
+              <Nav.Link as="button" onClick={() => setPage('editor')} active={page === 'editor'} className="fw-bold">
+                <i className="bi bi-pencil-square me-1"></i>Editor
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       {/* Subtle gradient background */}
       <div style={{minHeight: '90vh', background: 'linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%)'}}>
         <div className="container py-5">
