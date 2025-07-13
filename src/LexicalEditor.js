@@ -2,6 +2,7 @@ import React from 'react';
 import LexicalToolbar from './LexicalToolbar';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { UnderlinePlugin } from '@lexical/react/LexicalUnderlinePlugin';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
@@ -33,6 +34,7 @@ export default function LexicalEditor() {
           contentEditable={<ContentEditable className="editor-input form-control" />}
           placeholder={<Placeholder />}
         />
+        <UnderlinePlugin />
         <HistoryPlugin />
         <AutoFocusPlugin />
         <OnChangePlugin onChange={editorState => {}} />
