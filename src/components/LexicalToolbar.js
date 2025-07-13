@@ -19,10 +19,6 @@ export default function LexicalToolbar() {
         <span className="me-1"><i className="bi bi-type-italic"></i></span>
         <span style={{fontStyle: 'italic'}}>I</span>
       </button>
-      <button type="button" className="btn btn-outline-primary mx-1 d-flex align-items-center" style={{fontSize: '1.25rem', minWidth: '40px'}} onClick={() => format('code')} title="Code">
-        <span className="me-1"><i className="bi bi-code"></i></span>
-        <span style={{fontFamily: 'monospace'}}>Code</span>
-      </button>
     </div>
   );
 }
