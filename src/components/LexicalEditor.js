@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setContent } from '../store/editorSlice';
 import LexicalToolbar from './LexicalToolbar';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
@@ -27,6 +29,17 @@ const initialConfig = {
 };
 
 export default function LexicalEditor() {
+  const dispatch = useDispatch();
+
+  // This function will be called whenever the editor state changes
+  const handleEditorChange = (editorState) => {
+    // You can convert editorState to JSON or text here
+    editorState.read(() => {
+      const json = editorState.toJSON();
+      dispatch(setContent(JSON.stringify(json)));
+    });
+  };
+
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container card p-3">
@@ -40,7 +53,7 @@ export default function LexicalEditor() {
         <ListPlugin />
         <HistoryPlugin />
         <AutoFocusPlugin />
-        <OnChangePlugin onChange={editorState => {}} />
+        <OnChangePlugin onChange={handleEditorChange} />
       </div>
     </LexicalComposer>
   );
